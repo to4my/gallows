@@ -5,7 +5,7 @@ class Game
     @letters = word.chars
     @user_guesses = []
   end
-# здесь нормализуем, чтобы из ошибок исключить
+  # здесь нормализуем, чтобы из ошибок исключить
   def errors
     return @user_guesses - normalized_letters(@letters)
   end
@@ -17,8 +17,8 @@ class Game
   def errors_allowed
     return TOTAL_ERRORS_ALLOWED - errors_made
   end
-# собсно нормализатор по буквам (с маленькими не работает, т.к. на
-# входе UPCASE обрабатывает и превращает все в верхний регистр)
+  # собсно нормализатор по буквам (с маленькими не работает, т.к. на
+  # входе UPCASE обрабатывает и превращает все в верхний регистр)
   def normalize_letter(letter)
     if letter == "Ё"
       letter = "Е"
@@ -28,11 +28,11 @@ class Game
       letter
     end
   end
-# нормализуем массив букв
+  # нормализуем массив букв
   def normalized_letters(array)
     @letters = array.map { |letter| normalize_letter(letter)  }
   end
-# с учетом нормализации  -  добавляем наш метод побуквенный
+  # с учетом нормализации  -  добавляем наш метод побуквенный
   def letters_to_guess
     result =
       @letters.map do |letter|
